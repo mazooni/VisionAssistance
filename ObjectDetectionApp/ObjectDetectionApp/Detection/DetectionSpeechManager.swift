@@ -52,23 +52,24 @@ final class DetectionSpeechManager: NSObject {
         guard !synthesizer.isSpeaking else { return }
         let now = Date()
         guard now.timeIntervalSince(lastSpokenAt) >= cooldown else { return }
-        
+
         let descriptions = Array(detections.lazy
             .compactMap(Self.makeDescription)
             .prefix(maxDetectionsToAnnounce))
-        
+
         guard !descriptions.isEmpty else { return }
-        
+
         let signature = descriptions.joined(separator: "|")
         guard signature != lastUtteranceSignature else { return }
-        
-        let utterance = AVSpeechUtterance(string: Self.makeSentence(from: descriptions))
+
+        let sentence = Self.makeSentence(from: descriptions)
+        let utterance = AVSpeechUtterance(string: sentence)
         utterance.voice = voice
         utterance.rate = AVSpeechUtteranceDefaultSpeechRate * 1.2
         utterance.preUtteranceDelay = 0.05
-        
+
         synthesizer.speak(utterance)
-        
+
         lastUtteranceSignature = signature
     }
     

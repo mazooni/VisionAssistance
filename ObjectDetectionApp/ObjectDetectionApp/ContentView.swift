@@ -9,20 +9,21 @@ import SwiftUI
 
 struct ContentView: View {
     @StateObject private var cameraManager = CameraManager()
+    @Environment(\.scenePhase) private var scenePhase
     @State private var isPermissionGranted = false
     @State private var showingAlert = false
-    
+
     var body: some View {
         ZStack {
             if isPermissionGranted {
                 CameraView(cameraManager: cameraManager)
                     .ignoresSafeArea()
-                
+
                 // Overlay with detection info
                 VStack {
                     Spacer()
-                    
-                    // Detection count and FPS
+
+                    // Detection count and depth source
                     HStack {
                         VStack(alignment: .leading, spacing: 8) {
                             HStack {
@@ -31,14 +32,7 @@ struct ContentView: View {
                                 Text("\(cameraManager.detections.count) objects")
                                     .font(.headline)
                             }
-                            
-                            HStack {
-                                Image(systemName: "timer")
-                                    .foregroundColor(.blue)
-                                Text(String(format: "%.1f FPS", cameraManager.fps))
-                                    .font(.subheadline)
-                            }
-                            
+
                             HStack {
                                 Image(systemName: cameraManager.isUsingLiDAR ? "camera.fill" : "camera")
                                     .foregroundColor(cameraManager.isUsingLiDAR ? .orange : .gray)
@@ -82,6 +76,20 @@ struct ContentView: View {
         }
         .onAppear {
             checkCameraPermission()
+        }
+        // Stop the AR session on backgrounding (camera/battery hygiene) and
+        // restart it on return; startSession/stopSession are idempotent via
+        // isSessionRunning.
+        .onChange(of: scenePhase) { _, phase in
+            guard isPermissionGranted else { return }
+            switch phase {
+            case .background:
+                cameraManager.stopSession()
+            case .active:
+                cameraManager.startSession()
+            default:
+                break
+            }
         }
         .alert("Camera Access Denied", isPresented: $showingAlert) {
             Button("Open Settings") {

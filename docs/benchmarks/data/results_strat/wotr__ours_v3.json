@@ -1,0 +1,68 @@
+{
+ "bench": "wotr",
+ "model": "ours_v3",
+ "imgsz": 640,
+ "gt_bin_counts": {
+  "tiny": 6854,
+  "small": 12889,
+  "medium": 2637,
+  "large": 921,
+  "all": 23301
+ },
+ "blocks": {
+  "shared": {
+   "tiny": {
+    "mAP50": 0.2063,
+    "mAP50_95": 0.0764,
+    "recall50_maxdet": 0.6297
+   },
+   "small": {
+    "mAP50": 0.4884,
+    "mAP50_95": 0.272,
+    "recall50_maxdet": 0.8589
+   },
+   "medium": {
+    "mAP50": 0.8079,
+    "mAP50_95": 0.5946,
+    "recall50_maxdet": 0.9361
+   },
+   "large": {
+    "mAP50": 0.9022,
+    "mAP50_95": 0.6739,
+    "recall50_maxdet": 0.989
+   },
+   "all": {
+    "mAP50": 0.4972,
+    "mAP50_95": 0.2953,
+    "recall50_maxdet": 0.8306
+   }
+  },
+  "custom": {
+   "tiny": {
+    "mAP50": 0.092,
+    "mAP50_95": 0.0319,
+    "recall50_maxdet": 0.2272
+   },
+   "small": {
+    "mAP50": 0.3138,
+    "mAP50_95": 0.1486,
+    "recall50_maxdet": 0.5245
+   },
+   "medium": {
+    "mAP50": 0.6177,
+    "mAP50_95": 0.369,
+    "recall50_maxdet": 0.8003
+   },
+   "large": {
+    "mAP50": 0.8927,
+    "mAP50_95": 0.6344,
+    "recall50_maxdet": 0.9528
+   },
+   "all": {
+    "mAP50": 0.3488,
+    "mAP50_95": 0.2085,
+    "recall50_maxdet": 0.5137
+   }
+  }
+ }
+}

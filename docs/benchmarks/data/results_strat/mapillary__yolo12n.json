@@ -1,0 +1,41 @@
+{
+ "bench": "mapillary",
+ "model": "yolo12n",
+ "imgsz": 640,
+ "gt_bin_counts": {
+  "tiny": 46810,
+  "small": 18763,
+  "medium": 4811,
+  "large": 1285,
+  "all": 71669
+ },
+ "blocks": {
+  "shared": {
+   "tiny": {
+    "mAP50": 0.0494,
+    "mAP50_95": 0.0211,
+    "recall50_maxdet": 0.1192
+   },
+   "small": {
+    "mAP50": 0.3586,
+    "mAP50_95": 0.2081,
+    "recall50_maxdet": 0.6252
+   },
+   "medium": {
+    "mAP50": 0.661,
+    "mAP50_95": 0.4774,
+    "recall50_maxdet": 0.8832
+   },
+   "large": {
+    "mAP50": 0.767,
+    "mAP50_95": 0.5955,
+    "recall50_maxdet": 0.9078
+   },
+   "all": {
+    "mAP50": 0.2029,
+    "mAP50_95": 0.1226,
+    "recall50_maxdet": 0.362
+   }
+  }
+ }
+}

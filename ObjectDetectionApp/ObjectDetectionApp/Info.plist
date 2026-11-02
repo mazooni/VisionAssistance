@@ -15,9 +15,7 @@
 	<key>CFBundleVersion</key>
 	<string>$(CURRENT_PROJECT_VERSION)</string>
 	<key>NSCameraUsageDescription</key>
-	<string>This app needs camera access to detect objects in real-time using YOLO11n.</string>
-	<key>UIRequiresFullScreen</key>
-	<true/>
+	<string>This app needs camera access to detect objects in real-time.</string>
 	<key>UIApplicationSceneManifest</key>
 	<dict>
 		<key>UIApplicationSupportsMultipleScenes</key>
@@ -27,5 +25,7 @@
 	</dict>
 	<key>UILaunchScreen</key>
 	<dict/>
+	<key>UIRequiresFullScreen</key>
+	<true/>
 </dict>
 </plist>

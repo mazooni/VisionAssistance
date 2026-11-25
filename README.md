@@ -310,8 +310,7 @@ Potential next steps for the project include:
 
 ## Research Artifacts
 
-- `Research.pdf` — the report on the earlier YOLO11n-based prototype (research motivation, implementation details, and project outcomes)
-- The current system, dataset curation, benchmark protocol, and on-device measurements are described in our paper *On-Device Object Detection for Assistive Navigation* (in preparation)
+- [`Assistive Navigation Research Paper.pdf`](Assistive%20Navigation%20Research%20Paper.pdf) — our paper *On-Device Object Detection for Assistive Navigation*, covering the current system, dataset curation, benchmark protocol, and on-device measurements
 
 ## Summary
 
